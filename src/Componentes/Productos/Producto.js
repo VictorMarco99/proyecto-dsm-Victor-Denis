@@ -11,7 +11,7 @@ function Producto(props) {
 
         if (Cantidad_producto != 0) {
             setCantidad_producto(Cantidad_producto - 1);
-            props.Actualizar_precio_total(-1*props.producto.precio);
+            props.Actualizar_precio_total(-1 * props.producto.precio, props.producto.id,false);
         }
     }
 
@@ -20,7 +20,7 @@ function Producto(props) {
 
         
             setCantidad_producto(Cantidad_producto + 1);
-            props.Actualizar_precio_total(props.producto.precio, props.producto.id);
+            props.Actualizar_precio_total(props.producto.precio, props.producto.id,true);
     }
 
 

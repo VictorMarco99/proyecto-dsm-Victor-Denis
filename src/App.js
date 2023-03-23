@@ -7,6 +7,8 @@ import Productos from './Componentes/Productos/Productos';
 import Confirmacion_pedido from './Componentes/Confirmacion_pedido';
 import { Route, Routes } from 'react-router-dom';
 import Continuar_pedido from './Componentes/Continuar_pedido';
+import Formulario_pedido from './Componentes/Formulario_pedido';
+import Agradecimiento from './Componentes/Agradecimiento';
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
     const [Precio_total, setPrecio_total] = useState(0);
     const [Pedido, setPedido] = useState([]);
     const [Iniciado, setIniciado] = useState(true);
+    const [Lista_productos_pedido, setLista_productos_pedido] = useState([]);
+
 
 
     const inicializar_pedido = (elemento,longitud) => {
@@ -21,9 +25,7 @@ function App() {
             let iniciar = [];
             for (var i = 0; i < longitud; i++) {
                 iniciar.push(0);
-            };
-
-            
+            };        
             setPedido(iniciar);
 
             setIniciado(false);
@@ -55,16 +57,32 @@ function App() {
 
 
 
-    const Actualizar_precio_total = (precio, id) => {
+    const Actualizar_precio_total = (precio, id,sumar) => {
 
         
         let copia = [];
         copia = Pedido;
-        copia[id] = copia[id] + 1;
+        if (sumar) {
+            copia[id] = copia[id] + 1;
+        } else {
+            if (copia[id] != 0) {
+                copia[id] = copia[id] - 1;
+            }
+        }
         setPedido(copia);
         
         setPrecio_total(Math.round(Precio_total + precio));
     }
+
+    const actualizar_lista_app = (productos) => {
+
+        setLista_productos_pedido(productos);
+
+    }
+
+
+
+
 
     const contenidoProductos =
         <>
@@ -78,7 +96,10 @@ function App() {
         <Header />
             <Routes>
                 <Route path='/' element={contenidoProductos} />
-                <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} />}/>        
+                <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />      
+                <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} />} />
+                <Route path='/Agradecimiento' element={<Agradecimiento/>} />      
+
             </Routes>
 
         <Footer />

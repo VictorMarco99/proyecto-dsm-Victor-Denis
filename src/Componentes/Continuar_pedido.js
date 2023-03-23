@@ -1,4 +1,7 @@
 import Productos_pedido from './Productos_pedido/Productos_pedido';
+import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+
 
 function Continuar_pedido(props) {
 
@@ -19,6 +22,13 @@ function Continuar_pedido(props) {
         return elemento.cantidad != 0;
     })
 
+
+    const MandarAppHandler = () => { 
+        props.actualizar_lista_app(productos_pedido_reales);
+        console.log(productos_pedido_reales);
+
+    }
+
    
 
     return (
@@ -31,9 +41,9 @@ function Continuar_pedido(props) {
                 <a href="/">
                     <button>Volver a la seccion de pedidos</button>
                 </a>
-                <a> </a>
-                <button>Continuar con el pedido</button>
-
+                <Link to='/Formulario'>
+                <button onClick={MandarAppHandler} >Continuar con el pedido</button>
+                </Link>
             
         </>
     )
