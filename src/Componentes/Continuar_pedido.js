@@ -25,7 +25,7 @@ function Continuar_pedido(props) {
 
     const MandarAppHandler = () => { 
         props.actualizar_lista_app(productos_pedido_reales);
-        console.log(productos_pedido_reales);
+  /*      console.log(productos_pedido_reales);*/
 
     }
 
@@ -38,9 +38,7 @@ function Continuar_pedido(props) {
             <Productos_pedido productos_pedido={productos_pedido_reales } />
                 
                 <h1>Precio total: {props.Precio_total} $</h1>
-                <a href="/">
-                    <button>Volver a la seccion de pedidos</button>
-                </a>
+
                 <Link to='/Formulario'>
                 <button onClick={MandarAppHandler} >Continuar con el pedido</button>
                 </Link>

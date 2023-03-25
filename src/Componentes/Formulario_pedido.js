@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 
 function Formulario_pedido(props) {
@@ -7,7 +9,9 @@ function Formulario_pedido(props) {
     const [Nombre, setNombre] = useState('');
     const [Apellidos, setApellidos] = useState('');
     const [Direccion, setDireccion] = useState('');
+
     const navega = useNavigate();
+
 
     const nombreHandler = (event) => {
 
@@ -27,11 +31,48 @@ function Formulario_pedido(props) {
 
     }
 
+
     const submitHandler = (event) => {
         event.preventDefault();
+
+        if (Nombre == '' || Apellidos == '' || Direccion == '') {
+            alert('RELLENE TODOS LOS CAMPOS');
+        } else { 
+
+        const Productos = [];
+
+        for (var i = 0; i < props.Lista_productos_pedido.length; i++) {
+            const nombre = props.Lista_productos_pedido[i].nombre;
+            var array = {
+                producto: props.Lista_productos_pedido[i].nombre,               
+                precio: props.Lista_productos_pedido[i].precio,
+                cantidad: props.Lista_productos_pedido[i].cantidad
+            };
+
+
+            Productos.push(array);
+
+        }
+        
+        console.log(Productos);
+
+
+        axios.post('https://proyecto-dsm-696fc-default-rtdb.europe-west1.firebasedatabase.app/pedidos.json', {
+            nombre: { Nombre },
+            apellidos: { Apellidos },
+            direccion: { Direccion },
+            Productos
+        
+            
+            
+        })
+            .then((response) => {
+                alert('producto insertado en la base de datos')
+            });
+
         navega('/Agradecimiento');
 
-
+        }
     }
 
     return (
@@ -58,9 +99,9 @@ function Formulario_pedido(props) {
            
 
             <div>---------------------------</div>
-            <a href="/">
+            <Link to ="/">
                 <button>Volver a la seccion de pedidos</button>
-            </a>
+            </Link>
         </>
     )
 }

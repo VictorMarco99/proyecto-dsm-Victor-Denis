@@ -7,7 +7,7 @@ function Agradecimiento(props) {
             <h1>MUCHAS GRACIAS POR SU COMPRA</h1>
 
             <a href="/">
-                <button>Volver a la seccion de pedidos</button>
+                <button>REALIZAR UN NUEVO PEDIDO</button>
             </a>
 
         </>

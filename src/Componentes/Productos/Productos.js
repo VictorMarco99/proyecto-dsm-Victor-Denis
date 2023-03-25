@@ -6,7 +6,7 @@ function Productos(props) {
             {props.productos.map((elemento) => {
 
                 return(
-                    <Producto key={elemento.id} producto={elemento} Actualizar_precio_total={props.Actualizar_precio_total} />
+                    <Producto key={elemento.id} producto={elemento} Actualizar_precio_total={props.Actualizar_precio_total} Pedido={props.Pedido} />
 
                     )
 

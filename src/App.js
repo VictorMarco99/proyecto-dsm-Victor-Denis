@@ -20,6 +20,7 @@ function App() {
 
 
 
+
     const inicializar_pedido = (elemento,longitud) => {
         if (elemento) {
             let iniciar = [];
@@ -51,7 +52,6 @@ function App() {
                 setLista_productos(arrayProductos);
              
                 inicializar_pedido(Iniciado, arrayProductos.length);
-           
             })
     });
 
@@ -86,23 +86,25 @@ function App() {
 
     const contenidoProductos =
         <>
-            <Productos productos={Lista_productos} Actualizar_precio_total={Actualizar_precio_total} />
+            <Productos productos={Lista_productos} Actualizar_precio_total={Actualizar_precio_total} Pedido={Pedido} />
             <Confirmacion_pedido Precio_total={Precio_total} Pedido={Pedido} />  
         </>
 
 
     return (
-       <>
-        <Header />
-            <Routes>
-                <Route path='/' element={contenidoProductos} />
-                <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />      
-                <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} />} />
-                <Route path='/Agradecimiento' element={<Agradecimiento/>} />      
+        <>
+
+                <Header />
+                    <Routes>
+                    <Route path='/' element={contenidoProductos} />
+                    <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />      
+                    <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} />} />
+                    <Route path='/Agradecimiento' element={<Agradecimiento/>} />      
 
             </Routes>
 
-        <Footer />
+                <Footer />
+
        </>
   );
 }

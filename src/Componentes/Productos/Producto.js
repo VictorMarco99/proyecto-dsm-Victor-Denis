@@ -5,13 +5,11 @@ import { useEffect, useState } from 'react';
 
 function Producto(props) {
 
-    const [Cantidad_producto, setCantidad_producto] = useState(0);
 
     const RestarProductoHandler = () => {
 
-        if (Cantidad_producto != 0) {
-            setCantidad_producto(Cantidad_producto - 1);
-            props.Actualizar_precio_total(-1 * props.producto.precio, props.producto.id,false);
+        if (props.Pedido[props.producto.id]!=0){
+            props.Actualizar_precio_total(-1 * props.producto.precio, props.producto.id, false);
         }
     }
 
@@ -19,7 +17,6 @@ function Producto(props) {
     const SumarProductoHandler = () => {
 
         
-            setCantidad_producto(Cantidad_producto + 1);
             props.Actualizar_precio_total(props.producto.precio, props.producto.id,true);
     }
 
@@ -31,7 +28,7 @@ function Producto(props) {
                 <div>{props.producto.id}.{props.producto.nombre}----{props.producto.precio}$</div> 
                 <div>
                     <button onClick={RestarProductoHandler}>-</button>
-                    {Cantidad_producto}
+                    {props.Pedido[props.producto.id]}
                     <button onClick={SumarProductoHandler} >+</button>
                 </div>
                 <div >  </div>
@@ -39,5 +36,4 @@ function Producto(props) {
         </>
         )
 }
-
 export default Producto;
