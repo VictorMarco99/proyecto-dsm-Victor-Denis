@@ -9,6 +9,8 @@ import { Route, Routes } from 'react-router-dom';
 import Continuar_pedido from './Componentes/Continuar_pedido';
 import Formulario_pedido from './Componentes/Formulario_pedido';
 import Agradecimiento from './Componentes/Agradecimiento';
+import Login from './Componentes/NuevasPaginas/Login';
+import Registro from './Componentes/NuevasPaginas/Registro';
 
 function App() {
 
@@ -95,11 +97,12 @@ function App() {
        <>
         <Header />
             <Routes>
+                <Route path='login' element={<Login/>}/>
+                <Route path='registro' element={<Registro/>}/>
                 <Route path='/' element={contenidoProductos} />
                 <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />      
                 <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} />} />
-                <Route path='/Agradecimiento' element={<Agradecimiento/>} />      
-
+                <Route path='/Agradecimiento' element={<Agradecimiento/>} />    
             </Routes>
 
         <Footer />
