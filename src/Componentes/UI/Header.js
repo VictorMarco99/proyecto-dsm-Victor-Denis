@@ -1,6 +1,6 @@
 import './Header.css';
 
-function Header() {
+const Header =()=> {
     return (
         <div className='header'>
             <h2>LISTA DE PRODUCTOS</h2>

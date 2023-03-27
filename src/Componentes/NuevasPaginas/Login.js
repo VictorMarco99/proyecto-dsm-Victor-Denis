@@ -1,4 +1,4 @@
-function Login () {
+const Login =()=> {
     return(
         <h3>Hola</h3>
     )
