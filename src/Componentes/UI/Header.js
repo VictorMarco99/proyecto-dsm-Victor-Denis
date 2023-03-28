@@ -1,12 +1,13 @@
 import { useContext } from 'react';
-// import AutContext from '../../Store/AutContext';
 import './Header.css';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
+import AutContext from '../NuevasPaginas/AutContext';
 
 function Header() {
 
-    // const contextAut = useContext(AutContext);
+    const contextAut = useContext(AutContext);
+    // la variable de arriba me esta creando como un puntero a esa varaibel Autcontext
     return (
         <div className='Header'>
             <Nav className='justify-content-end'>
@@ -20,7 +21,7 @@ function Header() {
                     <Link to='/about-us'>Quienes Somos</Link> | {' '}
                 </Nav.Item>
                 <Nav.Item >
-                    <Link to='/hisotrico'>Historico</Link> | {' '}
+                    <Link to='/historico'>Historico</Link> | {' '}
                 </Nav.Item>
                 <Nav.Item >
                     <Link to='/login'>Login</Link> | {' '}
