@@ -37,45 +37,52 @@ function Formulario_pedido(props) {
 
         if (Nombre == '' || Apellidos == '' || Direccion == '') {
             alert('RELLENE TODOS LOS CAMPOS');
-        } else { 
+        } else {
 
-        const Productos = [];
+            const Productos = [];
 
-        for (var i = 0; i < props.Lista_productos_pedido.length; i++) {
-            const nombre = props.Lista_productos_pedido[i].nombre;
-            var array = {
-                producto: props.Lista_productos_pedido[i].nombre,               
-                precio: props.Lista_productos_pedido[i].precio,
-                cantidad: props.Lista_productos_pedido[i].cantidad
-            };
+            for (var i = 0; i < props.Lista_productos_pedido.length; i++) {
+                const nombre = props.Lista_productos_pedido[i].nombre;
+                var array = {
+                    producto: props.Lista_productos_pedido[i].nombre,
+                    precio: props.Lista_productos_pedido[i].precio,
+                    cantidad: props.Lista_productos_pedido[i].cantidad
+                };
+
+                
+                Productos.push(array);
+
+            }
+
+            console.log(Productos);
+            if (props.login) {
+                // axios.post('https://dsm-react-demo-2023-7e01d-default-rtdb.europe-west1.firebasedatabase.app/historico/' + ficherito + '.json' + '?auth=' + props.idToken, producto)
 
 
-            Productos.push(array);
+                axios.post('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app/pedidos/'+props.id+'.json'+'?auth=', {
+                    nombre: { Nombre },
+                    apellidos: { Apellidos },
+                    direccion: { Direccion },
+                    Productos: { Productos }
 
-        }
-        
-        console.log(Productos);
 
 
-        axios.post('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app//pedidos.json', {
-            nombre: { Nombre },
-            apellidos: { Apellidos },
-            direccion: { Direccion },
-            Productos        
-            
-            
-        })
-            .then((response) => {
-                alert('producto insertado en la base de datos')
-            });
+                })
+                    .then((response) => {
+                        alert('producto insertado en la base de datos')
+                    });
 
-        navega('/Agradecimiento');
+                navega('/Agradecimiento');
+            } else {
+                alert('debe logearse');
+            }
+
 
         }
     }
 
     return (
-        <>          
+        <>
             <h1>RELLENE EL FORMULARIO:</h1>
             <form onSubmit={submitHandler}>
                 <div>
@@ -91,14 +98,14 @@ function Formulario_pedido(props) {
                 <div>
                     <label>Direccion de envio:</label>
                     <input onChange={direccionHandler} type='text'></input>
-                </div>               
+                </div>
                 <button type='submit'>TRAMITAR PEDIDO</button>
-                
+
             </form>
-           
+
 
             <div>---------------------------</div>
-            <Link to ="/">
+            <Link to="/">
                 <button>Volver a la seccion de pedidos</button>
             </Link>
         </>

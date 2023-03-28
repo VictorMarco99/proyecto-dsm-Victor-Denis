@@ -20,9 +20,9 @@ const Registro = (props) => {
             returnSecureToken: true,
             // todo esto es lo que se  manda a nuestra peticion para logearnos
         }
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDxgzgAJ2WVbYPp-C_5xFtaYhr-gGYZF8k',authData)
+        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAWo1c7yGffKdVw8c3kReQFK6sU5Dv56_Y',authData)
         .then((response)=>{
-            console.log(response);
+            console.log(response.data.localId);
             // props.actualizarLogin(true,response.data);
             alert('registro completado');
         }).catch((error)=>{

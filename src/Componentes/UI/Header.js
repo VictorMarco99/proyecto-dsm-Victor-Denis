@@ -10,6 +10,9 @@ function Header() {
     return (
         <div className='Header'>
             <Nav className='justify-content-end'>
+            <Nav.Item >
+                    <Link to='/'>Productos</Link>
+                </Nav.Item>
                 <Nav.Item >
                     <Link to='/login'>Login</Link>
                 </Nav.Item>

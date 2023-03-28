@@ -20,10 +20,17 @@ function App() {
     const [Precio_total, setPrecio_total] = useState(0);
     const [Pedido, setPedido] = useState([]);
     const [Iniciado, setIniciado] = useState(true);
-    const [Lista_productos_pedido, setLista_productos_pedido] = useState([]);
 
-    const [login, setLogin] = useState('chicho');// luego hay quee poner aqui un true y tal para ver que el usuario esta logeado
-    const [id, setId] = useState('ninguno');// luego hay quee poner aqui un true y tal para ver que el usuario esta logeado
+
+    const [Lista_productos_pedido, setLista_productos_pedido] = useState([]);
+    const [id,setId]=useState('');
+    const [login, setLogin] = useState(false);// luego hay quee poner aqui un true y tal para ver que el usuario esta logeado
+    
+
+    const actualizarLogin=(login,id) =>{
+        setLogin(login);
+        setId(id);
+    }
 
 
 
@@ -100,18 +107,17 @@ function App() {
     return (
         <>
             {/* lo que hago con ese. Provider es proporcionar mi variable a toda la app envolviendo a mis consumidores */}
-            {/* aunque lo haya inicializado ya, tengo que volver a darle un valor inicial aqui */}
-            <AutContext.Provider value={{ login: login, id: id }}>
-                {/* lo que hago con ese value es enlazar mi varaible de estado login, con el contexto
-                que se me extiende en toda la app y puedo cambiarlo o invocarlo desde muchas partes */}
+            {/* aunque lo haya inicializado ya, tengo que volver a darle un valor inicial aqui
+            las primeras llaves son del json */}
+            <AutContext.Provider value={{ login: login}}>
                 <Header />
                 <Routes>
-                <Route path='login' element={<Login setId={setId}/>} />
+                <Route path='login' element={<Login setId={setId} actualizarLogin={actualizarLogin}/>} />
                     <Route path='registro' element={<Registro />} />
-                    <Route path='/historico' element={<Historico id={id}/>} />
+                    <Route path='/historico' element={<Historico id={id} login={login}/>} />
                     <Route path='/' element={contenidoProductos} />
                     <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />
-                    <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} />} />
+                    <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} />} />
                     <Route path='/Agradecimiento' element={<Agradecimiento />} />
 
                 </Routes>

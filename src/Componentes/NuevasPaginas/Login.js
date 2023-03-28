@@ -26,13 +26,12 @@ const Login = (props) => {
             // todo esto es lo que se  manda a nuestra peticion para logearnos
         }
 
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDxgzgAJ2WVbYPp-C_5xFtaYhr-gGYZF8k', authData)
+        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAWo1c7yGffKdVw8c3kReQFK6sU5Dv56_Y', authData)
         .then((response) => {
             console.log(response.data.localId);
             props.setId(response.data.localId);
-            // console.log(contextAut.id);
-            // console.log(contextAut.login);
-            // <Historico identificador={identificador}/>
+            props.actualizarLogin(true,response.data.localId);
+
 
 
             // props.actualizarLogin(true, response.data);
@@ -46,6 +45,10 @@ const Login = (props) => {
         
     }
 
+    const logoutHandler = ()=>{
+        props.actualizarLogin(false,'');
+
+    }
 
 
 
@@ -61,6 +64,7 @@ const Login = (props) => {
                         <Form.Control onChange={(event) => setPassword(event.target.value)} type='password' value={password} /></Col>
 
                     <Col><Button  type="submit" variant="primary">Login</Button></Col>
+                    <Col><Button  onClick={logoutHandler} variant="warning">Logout</Button></Col>
                     {/* <Col><Button type="submit" onClick={logoutHandler} variant="warning">Logout</Button></Col> */}
 
                 </Row>

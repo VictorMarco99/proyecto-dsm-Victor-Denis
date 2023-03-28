@@ -9,19 +9,21 @@ function Historico(props) {
     useEffect(() => {
         // console.log('SE MONTA PRODUCTOS');
         // PARA METER CUALQUIER LOGICA, ENVOLVER EN FUNCION
-        axios.get('https://dsm-react-demo-2023-7e01d-default-rtdb.europe-west1.firebasedatabase.app/historico.json?orderBy="$key"&equalTo="'+props.id+'"')
-            .then((response) => {
-                console.log(response.data);
+
+        if(props.login!=false && props.id!=''){
+          axios.get('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app//pedidos.json?orderBy="$key"&equalTo="'+props.id+'"')
+          .then((response) => {
+              console.log(response.data);
+          }).catch((error) => {
+              alert('se ha producido un error');
+              // esto es por si nos salra algun error en la base de datos
+          })
 
 
-
-
-
-            }).catch((error) => {
-                alert('se ha producido un error');
-                // esto es por si nos salra algun error en la base de datos
-            })
-
+        }else{
+          alert('algo esta fallando');
+        }
+     
 
     }, []);
 

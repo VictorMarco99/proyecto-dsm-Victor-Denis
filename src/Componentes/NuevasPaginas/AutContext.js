@@ -1,8 +1,8 @@
 import React from "react";
 
 const AutContext = React.createContext({
-    login:'',
-    id:'esta variable solo sirve para tomar valores'
+    login:'true',
+    
 })
 
 
