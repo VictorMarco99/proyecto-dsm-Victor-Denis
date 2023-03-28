@@ -57,12 +57,11 @@ function Formulario_pedido(props) {
         console.log(Productos);
 
 
-        axios.post('https://proyecto-dsm-696fc-default-rtdb.europe-west1.firebasedatabase.app/pedidos.json', {
+        axios.post('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app//pedidos.json', {
             nombre: { Nombre },
             apellidos: { Apellidos },
             direccion: { Direccion },
-            Productos
-        
+            Productos        
             
             
         })

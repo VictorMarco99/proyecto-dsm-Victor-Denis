@@ -9,6 +9,10 @@ import { Route, Routes } from 'react-router-dom';
 import Continuar_pedido from './Componentes/Continuar_pedido';
 import Formulario_pedido from './Componentes/Formulario_pedido';
 import Agradecimiento from './Componentes/Agradecimiento';
+import Login from './Componentes/NuevasPaginas/Login';
+import Registro from './Componentes/NuevasPaginas/Registro';
+import AutContext from './Componentes/NuevasPaginas/AutContext';
+import Historico from './Componentes/NuevasPaginas/Historico';
 
 function App() {
 
@@ -18,15 +22,17 @@ function App() {
     const [Iniciado, setIniciado] = useState(true);
     const [Lista_productos_pedido, setLista_productos_pedido] = useState([]);
 
+    const [login, setLogin] = useState('chicho');// luego hay quee poner aqui un true y tal para ver que el usuario esta logeado
+    const [id, setId] = useState('ninguno');// luego hay quee poner aqui un true y tal para ver que el usuario esta logeado
 
 
 
-    const inicializar_pedido = (elemento,longitud) => {
+    const inicializar_pedido = (elemento, longitud) => {
         if (elemento) {
             let iniciar = [];
             for (var i = 0; i < longitud; i++) {
                 iniciar.push(0);
-            };        
+            };
             setPedido(iniciar);
 
             setIniciado(false);
@@ -35,31 +41,31 @@ function App() {
 
 
     useEffect(() => {
-        axios.get('https://proyecto-dsm-696fc-default-rtdb.europe-west1.firebasedatabase.app/productos.json')
+        axios.get('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app//productos.json')
             .then((response) => {
                 //console.log(response.data);
                 let arrayProductos = [];
 
 
                 for (let key in response.data) {
-   
-                    arrayProductos.push({                
+
+                    arrayProductos.push({
                         id: key,
                         nombre: response.data[key].nombre,
                         precio: response.data[key].precio
                     })
                 }
                 setLista_productos(arrayProductos);
-             
+
                 inicializar_pedido(Iniciado, arrayProductos.length);
             })
     });
 
 
 
-    const Actualizar_precio_total = (precio, id,sumar) => {
+    const Actualizar_precio_total = (precio, id, sumar) => {
 
-        
+
         let copia = [];
         copia = Pedido;
         if (sumar) {
@@ -70,7 +76,7 @@ function App() {
             }
         }
         setPedido(copia);
-        
+
         setPrecio_total(Math.round(Precio_total + precio));
     }
 
@@ -87,26 +93,33 @@ function App() {
     const contenidoProductos =
         <>
             <Productos productos={Lista_productos} Actualizar_precio_total={Actualizar_precio_total} Pedido={Pedido} />
-            <Confirmacion_pedido Precio_total={Precio_total} Pedido={Pedido} />  
+            <Confirmacion_pedido Precio_total={Precio_total} Pedido={Pedido} />
         </>
 
 
     return (
         <>
-
+            {/* lo que hago con ese. Provider es proporcionar mi variable a toda la app envolviendo a mis consumidores */}
+            {/* aunque lo haya inicializado ya, tengo que volver a darle un valor inicial aqui */}
+            <AutContext.Provider value={{ login: login, id: id }}>
+                {/* lo que hago con ese value es enlazar mi varaible de estado login, con el contexto
+                que se me extiende en toda la app y puedo cambiarlo o invocarlo desde muchas partes */}
                 <Header />
-                    <Routes>
+                <Routes>
+                <Route path='login' element={<Login setId={setId}/>} />
+                    <Route path='registro' element={<Registro />} />
+                    <Route path='/historico' element={<Historico id={id}/>} />
                     <Route path='/' element={contenidoProductos} />
-                    <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />      
+                    <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />
                     <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} />} />
-                    <Route path='/Agradecimiento' element={<Agradecimiento/>} />      
+                    <Route path='/Agradecimiento' element={<Agradecimiento />} />
 
-            </Routes>
+                </Routes>
 
                 <Footer />
-
-       </>
-  );
+            </AutContext.Provider>
+        </>
+    );
 }
 
 export default App;

@@ -1,8 +1,8 @@
-.header {
+.Header {
     padding: 0.5rem;
-    margin: 1rem 0;
+    margin: 1 rem 0;
     border-radius: 12px;
-    background-color: aqua;
+    background-color: #1fde45;
     text-align: center;
-    color: aliceblue;
-}
+    color:aliceblue;
+  }
