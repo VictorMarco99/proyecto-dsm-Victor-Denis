@@ -49,7 +49,7 @@ function Formulario_pedido(props) {
                     cantidad: props.Lista_productos_pedido[i].cantidad
                 };
 
-                
+
                 Productos.push(array);
 
             }
@@ -57,9 +57,10 @@ function Formulario_pedido(props) {
             console.log(Productos);
             if (props.login) {
                 // axios.post('https://dsm-react-demo-2023-7e01d-default-rtdb.europe-west1.firebasedatabase.app/historico/' + ficherito + '.json' + '?auth=' + props.idToken, producto)
+                // axios.post('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app/pedidos/' + props.id + '.json' + '?auth=' + props.token, {
 
 
-                axios.post('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app/pedidos/'+props.id+'.json'+'?auth=', {
+                axios.post('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app/pedidos/' + props.id + '.json', {
                     nombre: { Nombre },
                     apellidos: { Apellidos },
                     direccion: { Direccion },

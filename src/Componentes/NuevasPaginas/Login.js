@@ -28,9 +28,12 @@ const Login = (props) => {
 
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAWo1c7yGffKdVw8c3kReQFK6sU5Dv56_Y', authData)
         .then((response) => {
+            console.log(response);
             console.log(response.data.localId);
+            // console.log(response.data.idToken);
             props.setId(response.data.localId);
             props.actualizarLogin(true,response.data.localId);
+            props.setToken(response.data.idToken);
 
 
 

@@ -25,6 +25,7 @@ function App() {
     const [Lista_productos_pedido, setLista_productos_pedido] = useState([]);
     const [id,setId]=useState('');
     const [login, setLogin] = useState(false);// luego hay quee poner aqui un true y tal para ver que el usuario esta logeado
+    const [token,setToken]=useState('');
     
 
     const actualizarLogin=(login,id) =>{
@@ -112,9 +113,9 @@ function App() {
             <AutContext.Provider value={{ login: login}}>
                 <Header />
                 <Routes>
-                <Route path='login' element={<Login setId={setId} actualizarLogin={actualizarLogin}/>} />
+                <Route path='login' element={<Login setId={setId} actualizarLogin={actualizarLogin} setToken={setToken}/>} />
                     <Route path='registro' element={<Registro />} />
-                    <Route path='/historico' element={<Historico id={id} login={login}/>} />
+                    <Route path='/historico' element={<Historico id={id} login={login} token={token}/>} />
                     <Route path='/' element={contenidoProductos} />
                     <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />
                     <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} />} />
