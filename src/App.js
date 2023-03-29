@@ -51,7 +51,7 @@ function App() {
     useEffect(() => {
         axios.get('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app//productos.json')
             .then((response) => {
-                //console.log(response.data);
+                console.log(response.data);
                 let arrayProductos = [];
 
 
@@ -67,7 +67,7 @@ function App() {
 
                 inicializar_pedido(Iniciado, arrayProductos.length);
             })
-    });
+    },[]);
 
 
 
