@@ -60,7 +60,8 @@ function App() {
                     arrayProductos.push({
                         id: key,
                         nombre: response.data[key].nombre,
-                        precio: response.data[key].precio
+                        precio: response.data[key].precio,
+                        imagen: response.data[key].imagen
                     })
                 }
                 setLista_productos(arrayProductos);
