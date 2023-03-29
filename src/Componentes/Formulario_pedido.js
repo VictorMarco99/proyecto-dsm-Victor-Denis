@@ -45,7 +45,7 @@ function Formulario_pedido(props) {
                 const nombre = props.Lista_productos_pedido[i].nombre;
                 var array = {
                     producto: props.Lista_productos_pedido[i].nombre,
-                    precio: props.Lista_productos_pedido[i].precio,
+                    precio_unidad: props.Lista_productos_pedido[i].precio,
                     cantidad: props.Lista_productos_pedido[i].cantidad
                 };
 
@@ -64,7 +64,7 @@ function Formulario_pedido(props) {
                     nombre: { Nombre },
                     apellidos: { Apellidos },
                     direccion: { Direccion },
-                    Productos: { Productos }
+                     Productos 
 
 
 
@@ -73,6 +73,7 @@ function Formulario_pedido(props) {
                         alert('producto insertado en la base de datos')
                     });
 
+                props.reiniciar();
                 navega('/Agradecimiento');
             } else {
                 alert('debe logearse');

@@ -94,6 +94,16 @@ function App() {
 
     }
 
+    const reiniciar_productos = () => {
+
+       
+            let reiniciar = [];
+            for (var i = 0; i < Pedido.length; i++) {
+                reiniciar.push(0);
+            };
+            setPedido(reiniciar);
+    }
+
 
 
 
@@ -118,7 +128,7 @@ function App() {
                     <Route path='/historico' element={<Historico id={id} login={login} token={token}/>} />
                     <Route path='/' element={contenidoProductos} />
                     <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />
-                    <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} />} />
+                    <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} reiniciar={reiniciar_productos } />} />
                     <Route path='/Agradecimiento' element={<Agradecimiento />} />
 
                 </Routes>
