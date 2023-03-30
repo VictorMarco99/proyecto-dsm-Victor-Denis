@@ -25,6 +25,9 @@ function Header() {
                 <Nav.Item >
                     <Link to='/historico'>Historico</Link> | {' '}
                 </Nav.Item>
+                <Nav.Item >
+                    <Link to='/lista'>Lista</Link> | {' '}
+                </Nav.Item>
 
                 {/* <Nav.Item >
                     <Link to='/contact?sede=Pamplona&persona=Julián'>Contacto</Link>| {' '}

@@ -64,10 +64,7 @@ function Formulario_pedido(props) {
                     nombre: { Nombre },
                     apellidos: { Apellidos },
                     direccion: { Direccion },
-                     Productos 
-
-
-
+                    productos: Productos 
                 })
                     .then((response) => {
                         alert('producto insertado en la base de datos')

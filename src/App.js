@@ -13,6 +13,7 @@ import Login from './Componentes/NuevasPaginas/Login';
 import Registro from './Componentes/NuevasPaginas/Registro';
 import AutContext from './Componentes/NuevasPaginas/AutContext';
 import Historico from './Componentes/NuevasPaginas/Historico';
+import Lista from './Componentes/NuevasPaginas/Lista';
 
 function App() {
 
@@ -131,6 +132,8 @@ function App() {
                     <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />
                     <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} reiniciar={reiniciar_productos } />} />
                     <Route path='/Agradecimiento' element={<Agradecimiento />} />
+                    <Route path='/lista' element={<Lista />} />
+
 
                 </Routes>
 
