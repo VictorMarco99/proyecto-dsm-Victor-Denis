@@ -27,18 +27,46 @@ function Historico(props) {
           // hago el . map abajo, para llamar a lista y que me devuelva en historico un div con los pedidos
           
         }).catch((error) => {
-          alert('se ha producido un error');
+          /*alert('se ha producido un error');*/
           // esto es por si nos salra algun error en la base de datos
         })
       } else {
-        alert('algo esta fallando');
+       /* alert('algo esta fallando');*/
       }
     },[]);// hasta aqui he separado cada archivo json
+
+    const borrar_pedido = (clave) => {
+
+       
+
+
+
+       //const copia_historico = arrayHistorico.filter((elemento) => {
+       //     return elemento.id != clave;
+
+       //     console.log(copia_historico);
+
+       //     alert('eeee');
+       // })
+
+
+        const copia_historico = arrayHistorico;
+
+
+        const dale = copia_historico.filter((elemento) => {
+            return elemento.id != clave;
+        })
+
+        setArrayHistorico(dale);
+
+
+
+    }
 
 
     
   const listado = arrayHistorico.map((elemento) =>{
-    return <Lista key={elemento.nombre} nombre={elemento.nombre["Nombre"]} direccion={elemento.direccion["Direccion"]} productos={elemento.productos} clave={elemento.id} id={props.id}></Lista>
+      return <Lista key={elemento.nombre} nombre={elemento.nombre["Nombre"]} direccion={elemento.direccion["Direccion"]} productos={elemento.productos} clave={elemento.id} id={props.id} borrar_pedido={borrar_pedido}></Lista>
   })
   
   console.log(arrayHistorico)

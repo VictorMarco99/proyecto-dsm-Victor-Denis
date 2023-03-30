@@ -8,11 +8,15 @@ function Lista(props){
     const borraProducto =()=>{
         axios.delete('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app/pedidos/' + props.id+'/' +props.clave+'.json')
         .then((response)=>{
-            console.log(response);
-            window.location.reload()
+            //console.log(response);
+            console.log(props.id);
+            console.log(props.clave);
+        //    window.location.reload()
         }).catch((error)=>{
             console.log(error)
         })
+
+        props.borrar_pedido(props.clave);
     }
 
     const productos_definidos = props.productos.map((elemento) => {

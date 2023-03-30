@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\Componentes",
-    "\\src\\Componentes\\Productos"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\Componentes\\Confirmacion_pedido.js",
+  "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }

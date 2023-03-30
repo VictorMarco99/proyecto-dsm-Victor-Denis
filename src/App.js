@@ -103,7 +103,8 @@ function App() {
             for (var i = 0; i < Pedido.length; i++) {
                 reiniciar.push(0);
             };
-            setPedido(reiniciar);
+        setPedido(reiniciar);
+        setPrecio_total(0);
     }
 
 
