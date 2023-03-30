@@ -10,9 +10,6 @@ function Historico(props) {
   const lista = [];
 
   useEffect(() => {
-    // console.log('SE MONTA PRODUCTOS');
-    // PARA METER CUALQUIER LOGICA, ENVOLVER EN FUNCION
-    // console.log(props.token);
     if (props.login != false && props.id != '') {
       axios.get('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app//pedidos.json?orderBy="$key"&equalTo="' + props.id + '"')
         .then((response) => {

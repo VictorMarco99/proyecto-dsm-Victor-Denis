@@ -1,6 +1,7 @@
 import axios from "axios"
-import { Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
+// import { Button } from "bootstrap";
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 function Lista(props){
 
@@ -8,7 +9,7 @@ function Lista(props){
         axios.delete('https://dsm-2023-default-rtdb.europe-west1.firebasedatabase.app/pedidos/' + props.id+'/' +props.clave+'.json')
         .then((response)=>{
             console.log(response);
-            // <Link to='/historico'></Link>
+            window.location.reload()
         }).catch((error)=>{
             console.log(error)
         })
@@ -32,7 +33,7 @@ function Lista(props){
     return(
         <>
                 <div>{props.nombre}---{props.direccion}:----{productos_definidos}</div>
-                <Button onClick={borraProducto} >hazme click para borrar producto</Button>
+                <Button variant="primary" onClick={borraProducto} >hazme click para borrar producto</Button>
         </>
     )
 }
