@@ -60,7 +60,7 @@ function Producto(props) {
                     <Col class="border border-dark" md={6} >
                         <h5>Cantidad</h5>
                         <Button variant="outline-info" onClick={RestarProductoHandler}>-</Button>
-                           <h8>{props.Pedido[props.producto.id]}</h8>       
+                           <h7>{props.Pedido[props.producto.id]}</h7>       
                         <Button variant="outline-danger" onClick={SumarProductoHandler} >+</Button>
                     </Col>
                 </Row>

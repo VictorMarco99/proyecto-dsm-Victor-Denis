@@ -83,7 +83,7 @@ function Lista(props) {
                 
                 <Row>
                     <Col lg={3}>
-                        <Button variant="primary" onClick={borraProducto} >hazme click para borrar producto</Button>
+                        <Button variant="danger" onClick={borraProducto} >BORRAR PEDIDO</Button>
 
                     </Col>
                 </Row>

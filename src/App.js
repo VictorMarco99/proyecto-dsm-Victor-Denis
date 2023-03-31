@@ -133,7 +133,7 @@ function App() {
                     <Route path='/' element={<Home/>} />
                     <Route path='/historico' element={<Historico id={id} login={login} token={token}/>} />
                     <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />
-                    <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} reiniciar={reiniciar_productos } />} />
+                    <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} reiniciar={reiniciar_productos} Precio_total={Precio_total} />} />
                     <Route path='/Agradecimiento' element={<Agradecimiento />} />
                     <Route path='/productos' element={contenidoProductos} />
                     {/* <Route path='/about-us' element={<AboutUs/>} /> */}

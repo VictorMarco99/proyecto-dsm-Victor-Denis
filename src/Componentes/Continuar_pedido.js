@@ -18,6 +18,7 @@ function Continuar_pedido(props) {
             cantidad: props.Pedido[i],
             id: props.productos[i].id,
             nombre: props.productos[i].nombre,
+            imagen: props.productos[i].imagen,
             precio: props.productos[i].precio
             }
     }

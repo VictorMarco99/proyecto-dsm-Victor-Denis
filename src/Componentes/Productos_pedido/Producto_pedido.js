@@ -14,10 +14,17 @@ function Producto_pedido(props) {
             <Container className='square-border border-success'>
                 <Row>
                     <Col md={4}>
-                    <h5> Cantidad de: {props.producto.nombre}</h5>
+                    <h5> {props.producto.nombre}</h5>
+                    </Col>
+                    <Col md={4}>
+                        <img alt='' src={props.producto.imagen} class="rounded-3" style={{ width: '150px', height: '150px' }} />
                     </Col>
                     <Col md={4}>
                         <h5> {props.producto.cantidad} UNIDADES</h5>
+                    </Col>
+
+                    <Col md={4}>
+                        <h5> {props.producto.precio}$/UNIDAD</h5>
                     </Col>
                 </Row>
             </Container>

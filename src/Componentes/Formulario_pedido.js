@@ -44,7 +44,10 @@ function Formulario_pedido(props) {
 
         if (Nombre == '' || Apellidos == '' || Direccion == '') {
             alert('RELLENE TODOS LOS CAMPOS');
-        } else {
+        } else if (props.Precio_total == 0) {
+            alert('NO HA ESCOGIDO NINGUN PRODUCTO');
+            navega('/productos');
+        }else{
 
             const Productos = [];
 
@@ -74,7 +77,7 @@ function Formulario_pedido(props) {
                     productos: Productos
                 })
                     .then((response) => {
-                        alert('producto insertado en la base de datos')
+                        
                     });
 
                 props.reiniciar();
