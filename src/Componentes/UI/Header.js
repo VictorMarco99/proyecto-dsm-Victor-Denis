@@ -22,9 +22,9 @@ function Header() {
                 <Nav.Item >
                     <Link to='/registro'>Registro</Link>| {' '}
                 </Nav.Item>
-                <Nav.Item >
+                {/* <Nav.Item >
                     <Link to='/about-us'>Quienes Somos</Link> | {' '}
-                </Nav.Item>
+                </Nav.Item> */}
                 <Nav.Item >
                     <Link to='/historico'>Historico</Link> | {' '}
                 </Nav.Item>

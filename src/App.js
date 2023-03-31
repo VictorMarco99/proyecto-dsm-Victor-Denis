@@ -136,7 +136,7 @@ function App() {
                     <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} reiniciar={reiniciar_productos } />} />
                     <Route path='/Agradecimiento' element={<Agradecimiento />} />
                     <Route path='/productos' element={contenidoProductos} />
-                    <Route path='/about-us' element={<AboutUs/>} />
+                    {/* <Route path='/about-us' element={<AboutUs/>} /> */}
 
                     
 

@@ -1,6 +1,6 @@
 const Home =()=>{
     return(
-        <h2>HOLA</h2>
+        <p>hola</p>
     )
 }
 export default Home;
