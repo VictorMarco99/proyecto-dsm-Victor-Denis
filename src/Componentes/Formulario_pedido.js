@@ -47,7 +47,7 @@ function Formulario_pedido(props) {
         } else if (props.Precio_total == 0) {
             alert('NO HA ESCOGIDO NINGUN PRODUCTO');
             navega('/productos');
-        }else{
+        } else {
 
             const Productos = [];
 
@@ -77,7 +77,7 @@ function Formulario_pedido(props) {
                     productos: Productos
                 })
                     .then((response) => {
-                        
+
                     });
 
                 props.reiniciar();
@@ -93,24 +93,6 @@ function Formulario_pedido(props) {
     return (
         <>
             <h2> FORMULARIO:</h2>
-            {/* <form onSubmit={submitHandler}>
-                <div>
-                    <label>Nombre:</label>
-                    <input onChange={nombreHandler} type='text'></input>
-                </div>
-
-                <div>
-                    <label>Apellidos:</label>
-                    <input onChange={apellidosHandler} type='text'></input>
-                </div>
-
-                <div>
-                    <label>Direccion de envio:</label>
-                    <input onChange={direccionHandler} type='text'></input>
-                </div>
-                <Button variant='success' type='submit'>TRAMITAR PEDIDO</Button>
-
-            </form> */}
             <Form onSubmit={submitHandler}>
 
                 <Container>
@@ -134,17 +116,17 @@ function Formulario_pedido(props) {
                         </Col>
 
                     </Row>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-
-                    {/* HASTA AQUI LOS CAMPOS DE RELLENAR */}
+                </Container>
+                <br></br>
+                <br></br>
+                <Container>
                     <Row>
-                        <Col sm={6}>
+                        <Col lg={3}>
                             <Button variant='success' type='submit'>TRAMITAR PEDIDO</Button>
+                        </Col>
+                        <Col lg={3}>
                             <Link to="/productos">
-                                <Button variant='info'>Volver a la seccion de pedidos</Button>
+                                <Button variant='info'>VOLVER AL PEDIDO</Button>
                             </Link>
                         </Col>
                     </Row>

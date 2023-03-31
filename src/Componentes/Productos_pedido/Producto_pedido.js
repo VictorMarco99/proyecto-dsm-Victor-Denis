@@ -17,15 +17,15 @@ function Producto_pedido(props) {
                     <h5> {props.producto.nombre}</h5>
                     </Col>
                     <Col md={4}>
-                        <img alt='' src={props.producto.imagen} class="rounded-3" style={{ width: '150px', height: '150px' }} />
+                        <h5> {props.producto.precio}$/UNIDAD</h5>
                     </Col>
                     <Col md={4}>
                         <h5> {props.producto.cantidad} UNIDADES</h5>
                     </Col>
-
                     <Col md={4}>
-                        <h5> {props.producto.precio}$/UNIDAD</h5>
+                        <img alt='' src={props.producto.imagen} class="rounded-3" style={{ width: '125px', height: '125px' }} />
                     </Col>
+
                 </Row>
             </Container>
             <br></br>
