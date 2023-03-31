@@ -14,6 +14,8 @@ import Registro from './Componentes/NuevasPaginas/Registro';
 import AutContext from './Componentes/NuevasPaginas/AutContext';
 import Historico from './Componentes/NuevasPaginas/Historico';
 import Lista from './Componentes/NuevasPaginas/Lista';
+import Home from './Componentes/NuevasPaginas/Home';
+import AboutUs from './Componentes/NuevasPaginas/AboutUs';
 
 function App() {
 
@@ -128,11 +130,15 @@ function App() {
                 <Routes>
                 <Route path='login' element={<Login setId={setId} actualizarLogin={actualizarLogin} setToken={setToken}/>} />
                     <Route path='registro' element={<Registro />} />
+                    <Route path='/' element={<Home/>} />
                     <Route path='/historico' element={<Historico id={id} login={login} token={token}/>} />
-                    <Route path='/' element={contenidoProductos} />
                     <Route path='/Continuar_pedido' element={<Continuar_pedido Precio_total={Precio_total} Pedido={Pedido} productos={Lista_productos} actualizar_lista_app={actualizar_lista_app} />} />
                     <Route path='/Formulario' element={<Formulario_pedido Lista_productos_pedido={Lista_productos_pedido} actualizarLogin={actualizarLogin} id={id} login={login} reiniciar={reiniciar_productos } />} />
                     <Route path='/Agradecimiento' element={<Agradecimiento />} />
+                    <Route path='/productos' element={contenidoProductos} />
+                    <Route path='/about-us' element={<AboutUs/>} />
+
+                    
 
 
                 </Routes>

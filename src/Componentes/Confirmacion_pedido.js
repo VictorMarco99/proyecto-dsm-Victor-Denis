@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+
 
 function Confirmacion_pedido(props) {
     
@@ -7,7 +9,7 @@ function Confirmacion_pedido(props) {
         <>
             <h1>Precio total: {props.Precio_total} $</h1>
             <Link to='/Continuar_pedido'>
-                <button  >REALIZAR PEDIDO</button>
+                <Button variant='success'>REALIZAR PEDIDO</Button>
             </Link>
         </>
     )

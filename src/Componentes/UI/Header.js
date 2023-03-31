@@ -10,14 +10,17 @@ function Header() {
     return (
         <div className='Header'>
             <Nav className='justify-content-end'>
-            <Nav.Item >
-                    <Link to='/'>Productos</Link>
+                <Nav.Item >
+                    <Link to='/'>Inicio</Link> | {' '}
                 </Nav.Item>
                 <Nav.Item >
-                    <Link to='/login'>Login</Link>
+                    <Link to='/productos'>Productos</Link>| {' '}
                 </Nav.Item>
                 <Nav.Item >
-                    <Link to='/registro'>Registro</Link>
+                    <Link to='/login'>Login</Link>| {' '}
+                </Nav.Item>
+                <Nav.Item >
+                    <Link to='/registro'>Registro</Link>| {' '}
                 </Nav.Item>
                 <Nav.Item >
                     <Link to='/about-us'>Quienes Somos</Link> | {' '}

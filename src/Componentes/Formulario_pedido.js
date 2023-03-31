@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+
+
 
 
 
@@ -64,7 +71,7 @@ function Formulario_pedido(props) {
                     nombre: { Nombre },
                     apellidos: { Apellidos },
                     direccion: { Direccion },
-                    productos: Productos 
+                    productos: Productos
                 })
                     .then((response) => {
                         alert('producto insertado en la base de datos')
@@ -82,8 +89,8 @@ function Formulario_pedido(props) {
 
     return (
         <>
-            <h1>RELLENE EL FORMULARIO:</h1>
-            <form onSubmit={submitHandler}>
+            <h2> FORMULARIO:</h2>
+            {/* <form onSubmit={submitHandler}>
                 <div>
                     <label>Nombre:</label>
                     <input onChange={nombreHandler} type='text'></input>
@@ -98,15 +105,51 @@ function Formulario_pedido(props) {
                     <label>Direccion de envio:</label>
                     <input onChange={direccionHandler} type='text'></input>
                 </div>
-                <button type='submit'>TRAMITAR PEDIDO</button>
+                <Button variant='success' type='submit'>TRAMITAR PEDIDO</Button>
 
-            </form>
+            </form> */}
+            <Form onSubmit={submitHandler}>
+
+                <Container>
+                    <Row>
+                        <Col sm={4}>
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control onChange={nombreHandler} type='text'></Form.Control>
+                        </Col>
 
 
-            <div>---------------------------</div>
-            <Link to="/">
-                <button>Volver a la seccion de pedidos</button>
-            </Link>
+
+                        <Col sm={4}>
+                            <Form.Label>Apellidos</Form.Label>
+                            <Form.Control onChange={apellidosHandler} type='text'></Form.Control>
+                        </Col>
+
+
+                        <Col sm={4}>
+                            <Form.Label>Direccion de envio</Form.Label>
+                            <Form.Control onChange={direccionHandler} type='text'></Form.Control>
+                        </Col>
+
+                    </Row>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    {/* HASTA AQUI LOS CAMPOS DE RELLENAR */}
+                    <Row>
+                        <Col sm={6}>
+                            <Button variant='success' type='submit'>TRAMITAR PEDIDO</Button>
+                            <Link to="/productos">
+                                <Button variant='info'>Volver a la seccion de pedidos</Button>
+                            </Link>
+                        </Col>
+                    </Row>
+                </Container>
+
+
+            </Form>
+
         </>
     )
 }

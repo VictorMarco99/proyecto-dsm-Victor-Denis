@@ -1,6 +1,10 @@
 import Productos_pedido from './Productos_pedido/Productos_pedido';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
+
+
 
 
 function Continuar_pedido(props) {
@@ -35,12 +39,12 @@ function Continuar_pedido(props) {
         <>
                 <h1>DETALLES DEL PEDIDO:</h1>
 
-            <Productos_pedido productos_pedido={productos_pedido_reales } />
+                 <Productos_pedido productos_pedido={productos_pedido_reales } />
                 
                 <h1>Precio total: {props.Precio_total} $</h1>
 
                 <Link to='/Formulario'>
-                <button onClick={MandarAppHandler} >Continuar con el pedido</button>
+                <Button variant='success' onClick={MandarAppHandler} >Continuar con el pedido</Button>
                 </Link>
             
         </>

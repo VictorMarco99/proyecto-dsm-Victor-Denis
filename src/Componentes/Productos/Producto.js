@@ -1,3 +1,8 @@
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+
 import './Producto.css'
 import { useEffect, useState } from 'react';
 
@@ -23,39 +28,46 @@ function Producto(props) {
 
 
     return (
+        //     <>
+        //         <div className='container'>
+        //             <div>{props.producto.id}.{props.producto.nombre}----{props.producto.precio}$</div>
+        //             <img alt='' src={props.producto.imagen} style={{width:'150px',height:'150px'}} />
+        //             <div>
+        //                 <button onClick={RestarProductoHandler}>-</button>
+        //                 {props.Pedido[props.producto.id]}
+        //                 <button onClick={SumarProductoHandler} >+</button>
+        //             </div>
+        //             <br></br>
+        //             <br></br>
+        //             <br></br>
+
+        //         </div>
+        //     </>
         <>
-            <div className='container'>
-                <div>{props.producto.id}.{props.producto.nombre}----{props.producto.precio}$</div>
-                <img alt='' src={props.producto.imagen} style={{width:'150px',height:'150px'}} />
-                <div>
-                    <button onClick={RestarProductoHandler}>-</button>
-                    {props.Pedido[props.producto.id]}
-                    <button onClick={SumarProductoHandler} >+</button>
-                </div>
-                {/* <div >  </div> */}
-                <br></br>
-                <br></br>
-                <br></br>
-
-            </div>
+            <Container  >
+                <Row>
+                    <Col md={6}>
+                        Producto: <h4>{props.producto.nombre}</h4>
+                    </Col>
+                    <Col md={6}>
+                        Precio: <h4>{props.producto.precio}$</h4>
+                    </Col>
+                </Row>
+                <Row class>
+                    <Col md={6}>
+                        <img alt='' src={props.producto.imagen} class="rounded-3" style={{ width: '150px', height: '150px' }} />
+                    </Col>
+                    <Col class="border border-dark" md={6} >
+                        <h5>Cantidad</h5>
+                        <Button variant="outline-info" onClick={RestarProductoHandler}>-</Button>
+                           <h8>{props.Pedido[props.producto.id]}</h8>       
+                        <Button variant="outline-danger" onClick={SumarProductoHandler} >+</Button>
+                    </Col>
+                </Row>
+            </Container>
+            --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         </>
-        // 
-        // <>
-        //     <div className='container'>
-        //         <h3>{props.producto.nombre}</h3>
-        //         <h3>PRECIO:{props.producto.precio}$</h3>
-        //         <img style={{ width: '100px' }} alt='' src={props.producto.imagen} />
-        //         <button style={{ width: '30px', height: '15px' }} onClick={RestarProductoHandler}>-</button>
-        //         <div style={{ width: '30px', height: '15px' }}>{props.Pedido[props.producto.id]}</div>
-        //         <button style={{ width: '30px', height: '15px' }} onClick={SumarProductoHandler} >+</button>
-        //         <br></br>
-        //         <br></br>
-        //         <br></br>
-        //         <br></br>
-
-
-        //     </div>
-        // </>
     )
+
 }
 export default Producto;
