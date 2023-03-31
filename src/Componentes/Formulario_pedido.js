@@ -16,6 +16,7 @@ function Formulario_pedido(props) {
     const [Nombre, setNombre] = useState('');
     const [Apellidos, setApellidos] = useState('');
     const [Direccion, setDireccion] = useState('');
+    const [Precio, setPrecio] = useState(props.Precio_total);
 
     const navega = useNavigate();
 
@@ -40,7 +41,7 @@ function Formulario_pedido(props) {
 
 
     const submitHandler = (event) => {
-        event.preventDefault();
+
 
         if (Nombre == '' || Apellidos == '' || Direccion == '') {
             alert('RELLENE TODOS LOS CAMPOS');
@@ -74,6 +75,7 @@ function Formulario_pedido(props) {
                     nombre: { Nombre },
                     apellidos: { Apellidos },
                     direccion: { Direccion },
+                    precio_pedido: { Precio },
                     productos: Productos
                 })
                     .then((response) => {
@@ -122,12 +124,15 @@ function Formulario_pedido(props) {
                 <Container>
                     <Row>
                         <Col lg={3}>
-                            <Button variant='success' type='submit'>TRAMITAR PEDIDO</Button>
+                            <Link to="/productos">
+                            <Button variant='info'>VOLVER AL PEDIDO</Button>
+                            </Link>
                         </Col>
                         <Col lg={3}>
-                            <Link to="/productos">
-                                <Button variant='info'>VOLVER AL PEDIDO</Button>
-                            </Link>
+                           
+                               
+                                <Button variant='success' type='submit'>TRAMITAR PEDIDO</Button>
+                            
                         </Col>
                     </Row>
                 </Container>

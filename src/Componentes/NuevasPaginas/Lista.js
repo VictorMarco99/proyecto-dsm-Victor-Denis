@@ -29,7 +29,7 @@ function Lista(props) {
                     <tr>
                         <td>{elemento.producto}</td>
                         <td>{elemento.cantidad}</td>
-                        <td>{elemento.precio_unidad}</td>
+                        <td>{elemento.precio_unidad} $</td>
                     </tr>
         )
 
@@ -40,7 +40,7 @@ function Lista(props) {
                 <tr>
                     <th>Producto</th>
                     <th>Cantidad</th>
-                    <th>Precio Unidad</th>
+                    <th>Precio/Unidad</th>
                 </tr>
             </thead>
 
@@ -80,6 +80,13 @@ function Lista(props) {
                 <br></br>
                 <br></br>
                 <br></br>
+
+                <Row>
+                    <Col>
+                        Precio pedido: <h4>{props.precio_pedido} $</h4>
+                    </Col>
+
+                </Row>
                 
                 <Row>
                     <Col lg={3}>

@@ -66,7 +66,7 @@ function Historico(props) {
 
     
   const listado = arrayHistorico.map((elemento) =>{
-      return <Lista key={elemento.nombre} nombre={elemento.nombre["Nombre"]} direccion={elemento.direccion["Direccion"]} productos={elemento.productos} clave={elemento.id} id={props.id} borrar_pedido={borrar_pedido} apellidos={elemento.apellidos["Apellidos"]}></Lista>
+      return <Lista key={elemento.nombre} borrar_pedido={borrar_pedido} nombre={elemento.nombre["Nombre"]} apellidos={elemento.apellidos["Apellidos"]} precio_pedido={elemento.precio_pedido["Precio"]} direccion={elemento.direccion["Direccion"]} productos={elemento.productos} clave={elemento.id} id={props.id}  ></Lista>
   })
   
   console.log(arrayHistorico)

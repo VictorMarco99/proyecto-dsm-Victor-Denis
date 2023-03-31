@@ -86,9 +86,9 @@ const Login = (props) => {
 
                     <Row>
                         <Col sm={4}>
-                            <Button type="submit" variant="primary">Login</Button>
+                            
                             <Button onClick={logoutHandler} variant="warning">Logout</Button>
-
+                            <Button type="submit" variant="primary">Login</Button>
                         </Col>
                        
                         
