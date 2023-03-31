@@ -26,11 +26,11 @@ function Lista(props) {
 
     const productos_definidos = props.productos.map((elemento) => {
         return (
-                    <tr>
-                        <td>{elemento.producto}</td>
-                        <td>{elemento.cantidad}</td>
-                        <td>{elemento.precio_unidad} $</td>
-                    </tr>
+            <tr>
+                <td>{elemento.producto}</td>
+                <td>{elemento.cantidad}</td>
+                <td>{elemento.precio_unidad}</td>
+            </tr>
         )
 
     })
@@ -40,7 +40,7 @@ function Lista(props) {
                 <tr>
                     <th>Producto</th>
                     <th>Cantidad</th>
-                    <th>Precio/Unidad</th>
+                    <th>Precio Unidad</th>
                 </tr>
             </thead>
 
@@ -82,23 +82,19 @@ function Lista(props) {
                 <br></br>
 
                 <Row>
-                    <Col>
-                        Precio pedido: <h4>{props.precio_pedido} $</h4>
+                    <Col lg={4}>
+                        Precio Final del Pedido 
+                        <h4>{props.precio_pedido}$</h4>
                     </Col>
 
-                </Row>
-                
-                <Row>
-                    <Col lg={3}>
+                    <Col lg={4}>
                         <Button variant="danger" onClick={borraProducto} >BORRAR PEDIDO</Button>
 
                     </Col>
+
                 </Row>
             </Container>
-            <br></br>
-            <br></br>
-            <br></br>
-
+            ---------------------------------------------------------------------------------------------------------------------------------------------
             {/* <div>{props.nombre}---{props.direccion}:----{productos_definidos}</div>
                 <Button variant="primary" onClick={borraProducto} >hazme click para borrar producto</Button> */}
         </>

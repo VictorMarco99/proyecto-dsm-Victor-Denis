@@ -28,21 +28,7 @@ function Producto(props) {
 
 
     return (
-        //     <>
-        //         <div className='container'>
-        //             <div>{props.producto.id}.{props.producto.nombre}----{props.producto.precio}$</div>
-        //             <img alt='' src={props.producto.imagen} style={{width:'150px',height:'150px'}} />
-        //             <div>
-        //                 <button onClick={RestarProductoHandler}>-</button>
-        //                 {props.Pedido[props.producto.id]}
-        //                 <button onClick={SumarProductoHandler} >+</button>
-        //             </div>
-        //             <br></br>
-        //             <br></br>
-        //             <br></br>
 
-        //         </div>
-        //     </>
         <>
             <Container  >
                 <Row>

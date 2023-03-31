@@ -44,7 +44,7 @@ function Historico(props) {
        //const copia_historico = arrayHistorico.filter((elemento) => {
        //     return elemento.id != clave;
 
-       //     console.log(copia_historico);
+          //  console.log(copia_historico);
 
        //     alert('eeee');
        // })
